@@ -39,7 +39,45 @@ public class TEAMS{
         int ans = 0;
 
         while(ans != -1){
-            System.out.println("1. ");
+            System.out.println("---------Menu---------");
+            System.out.println("1. Add Student");
+            System.out.println("2. Add Teacher");
+            System.out.println("3. Add Course");
+            System.out.println("4. Edit Student");
+            System.out.println("5. List Students");
+            System.out.println("6. List Courses");
+            System.out.println("7. Search for Student");
+            System.out.println("0. Exit");
+            ans = sc.nextInt();
+            sc.nextLine();//You have to do this
+
+            if (ans == 1) {
+                System.out.println("1. Add Student");
+            }
+            else if (ans == 2) {
+                System.out.println("2. Add Teacher");
+            }
+            else if (ans == 3) {
+                System.out.println("3. Add Course");
+            }
+            else if (ans == 4) {
+                System.out.println("4. Edit Student");
+            }
+            else if (ans == 5) {
+                System.out.println("5. List Students");
+            }
+            else if (ans == 6) {
+                System.out.println("6. List Courses");
+            }
+            else if (ans == 7) {
+                System.out.println("7. Search for Student");
+            }
+            else if (ans == 0) {
+                System.out.println("0. Exit");
+            }
+            else {
+                System.out.println("Invalid Option");
+            }
         }
         
 
