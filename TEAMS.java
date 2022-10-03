@@ -17,28 +17,30 @@ public class TEAMS{
 
         
         //Load the data if available ### DO NOT CHANGE THIS PART
-        try{
-            students =(ArrayList<Student>)loadData("students");
-
-        }catch(Exception e){
+        try {
+            students = (ArrayList<Student>)loadData("students");
+        }
+        catch(Exception e){
             students = new ArrayList<>();
         }
-        try{
-            teachers =(ArrayList<Teacher>)loadData("teachers");
-        }catch(Exception e){
+        try {
+            teachers = (ArrayList<Teacher>)loadData("teachers");
+        }
+        catch(Exception e){
             teachers = new ArrayList<>();
         }
-        try{
-            courses =(ArrayList<Course>)loadData("courses");
-        }catch(Exception e){
+        try {
+            courses = (ArrayList<Course>)loadData("courses");
+        }
+        catch(Exception e){
             courses = new ArrayList<>();
         }
 
 
         //############## MAIN MENU STARTS HERE ##############
-        int ans = 0;
+        int ans = -1;
 
-        while(ans != -1){
+        while(ans != 0){
             System.out.println("---------Menu---------");
             System.out.println("1. Add Student");
             System.out.println("2. Add Teacher");
@@ -49,10 +51,16 @@ public class TEAMS{
             System.out.println("7. Search for Student");
             System.out.println("0. Exit");
             ans = sc.nextInt();
-            sc.nextLine();//You have to do this
+            sc.nextLine();
 
             if (ans == 1) {
-                System.out.println("1. Add Student");
+                System.out.println("Add Student");
+                System.out.println("Name: ");
+                int ans2 = sc.nextInt();
+                sc.nextLine();
+                if (ans2 == 1) {
+                    System.out.println("test");
+                }
             }
             else if (ans == 2) {
                 System.out.println("2. Add Teacher");

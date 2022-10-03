@@ -5,13 +5,11 @@ public class Student implements Serializable {
     private String name;
     private int gradeLevel;
     private ArrayList<Course> classes;
-    private String favoriteTeacher;
 
-    public Student(String name, int gradeLevel, ArrayList<Course> classes, String favoriteTeacher) {
+    public Student(String name, int gradeLevel) {
         this.name = name;
         this.gradeLevel = gradeLevel;
-        this.classes = classes;
-        this.favoriteTeacher = favoriteTeacher;
+        classes = new ArrayList<>();
     }
 
     public String getName() {
@@ -29,7 +27,12 @@ public class Student implements Serializable {
     }
 
     public double calculateGPA() {
-
+        for (int i = 0 ; i < classes.size(); i++) {
+            int grade = classes.get(i).getGrade();
+            if (grade > 89) {
+                
+            }
+        }
     }
 
     public Course getBestClass() {
@@ -42,5 +45,9 @@ public class Student implements Serializable {
 
     public boolean removeCourse(Course class) {
         
+    }
+
+    public String toString() {
+        return "";
     }
 }
