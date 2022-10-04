@@ -47,18 +47,33 @@ public class Student implements Serializable {
     }
 
     public Course getBestClass() {
-
+        int greatest = classes.get(0).getGrade();
+        int bestClassIndex = -1;
+        for (int i = 1 ; i < classes.size(); i++) {
+            int grade = classes.get(i).getGrade();
+            if (grade > greatest) {
+                greatest = grade;
+                bestClassIndex = i;
+            }
+        }
+        return classes.get(bestClassIndex);
     }
 
-    public void addCourse(Course class) {
-
+    public void addCourse(Course class_) {
+        classes.add(class_);
     }
 
-    public boolean removeCourse(Course class) {
-        
+    public boolean removeCourse(Course class_) {
+        for (int i = 0 ; i < classes.size(); i++) {
+            if (class_ == classes.get(i)) {
+                classes.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
 
     public String toString() {
-        return "";
+        return "Name: " + name + "\n Grade Level: " + gradeLevel + "\n GPA: " + calculateGPA();
     }
 }

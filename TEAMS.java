@@ -55,18 +55,62 @@ public class TEAMS{
 
             if (ans == 1) {
                 System.out.println("Add Student");
-                System.out.println("Name: ");
-                int ans2 = sc.nextInt();
+                System.out.print("Name: ");
+                String name = sc.nextLine();
+                System.out.print("Grade Level: ");
+                int gradeLevel = sc.nextInt();
                 sc.nextLine();
-                if (ans2 == 1) {
-                    System.out.println("test");
-                }
+
+                Student newStudent = new Student(name, gradeLevel);
+                students.add(newStudent);
             }
             else if (ans == 2) {
-                System.out.println("2. Add Teacher");
+                System.out.println("Add Teacher");
+                System.out.print("Name: ");
+                String name = sc.nextLine();
+                System.out.print("Years of Experience: ");
+                int yearsExperience = sc.nextInt();
+                sc.nextLine();
+
+                Teacher newTeacher = new Teacher(name, yearsExperience);
+                teachers.add(newTeacher);
             }
             else if (ans == 3) {
-                System.out.println("3. Add Course");
+                boolean current = false;
+
+                System.out.println("Add Course");
+                System.out.print("Subject: ");
+                String subject = sc.nextLine();
+                System.out.print("Teacher Name: ");
+                String teacherName = sc.nextLine();
+                System.out.print("Are Students Taking This Course: ");
+                String strCurrent = sc.nextLine();
+
+                if (strCurrent.toLowerCase() == "yes") {
+                    current = true;
+                }
+
+                boolean a = false;
+                for (int i = 0 ; i < teachers.size(); i++) {
+                    if (teacherName == teachers.get(i).getName()) {
+                        System.out.println("YAY");
+                        Course newCourse = new Course(subject, teachers.get(i), current);
+                        courses.add(newCourse);
+                        a = true;
+                    }
+
+                    else {
+                        System.out.println(teacherName.toUpperCase());
+                        System.out.println(teachers.get(i).getName().toUpperCase());
+                    }
+                }
+
+                if (!a) {
+                    System.out.println("Failed");
+                }
+                else {
+                    System.out.println("Successful");
+                }
             }
             else if (ans == 4) {
                 System.out.println("4. Edit Student");
