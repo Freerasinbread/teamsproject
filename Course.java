@@ -47,9 +47,9 @@ public class Course implements Serializable, Cloneable {
 
     public String toString() {
         if (grade == -1) {
-            return "Subject by Teacher" + teacher.getName();
+            return "Subject by Teacher " + teacher.getName();
         }
-        return "Subject by Teacher" + teacher.getName() + " Grade: " + grade;
+        return "Subject by Teacher " + teacher.getName() + " Grade: " + grade;
     }
 
     public Course clone() {

@@ -112,25 +112,53 @@ public class TEAMS{
                 boolean a = false;
                 for (int i = 0 ; i < students.size(); i++) {
                     if (strStudent.equals(students.get(i).getName())) {
-                        System.out.print("Edit (name, gradelevel): ");
+                        System.out.print("Edit (name, gradelevel, course): ");
                         String strEdit = sc.nextLine();
-                        if (strEdit == "name") {
+                        if (strEdit.equals("name")) {
                             System.out.print("Enter New Name: ");
                             String strName = sc.nextLine();
                             students.get(i).setName(strName);
                             a = true;
                         }
-                        else if (strEdit == "gradelevel") {
+                        else if (strEdit.equals("gradelevel")) {
                             System.out.print("Enter New Grade Level: ");
                             int strGradeLevel = sc.nextInt();
                             students.get(i).setGradeLevel(strGradeLevel);
                             a = true;
+                        }
+                        else if (strEdit.equals("course")) {
+                            System.out.println("Add New Course");
+                            System.out.println("Pick Class To Add: ");
+
+                            for (i = 0 ; i < courses.size(); i++) {
+                                System.out.print(i + " | ");
+                                System.out.println(courses.get(i));
+                            int intClass = sc.nextInt();
+
+                            if (intClass > -1 && intClass < courses.size()) {
+                                Course c = courses.get(intClass).clone();
+                                System.out.println("Enter Grade: ");
+                                int intGrade = sc.nextInt();
+                                c.setGrade(intGrade);
+                                sc.nextLine();
+                                System.out.println("Currently Taking (yes/no): ");
+                                String strTaking = sc.nextLine();
+
+                                if (strTaking.toLowerCase() == "yes") {
+                                    c.setCurrent(true);
+                                }
+
+                                students.get(i).addCourse(c);
+                                a = true;
+                            }
+
                         }
                     }
                 }
 
                 if (!a) {
                     System.out.println("Failed");
+                    }
                 }
             }
             else if (ans == 5) {
