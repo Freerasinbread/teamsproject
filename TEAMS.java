@@ -92,37 +92,75 @@ public class TEAMS{
 
                 boolean a = false;
                 for (int i = 0 ; i < teachers.size(); i++) {
-                    if (teacherName == teachers.get(i).getName()) {
-                        System.out.println("YAY");
+                    if (teacherName.equals(teachers.get(i).getName())) {
                         Course newCourse = new Course(subject, teachers.get(i), current);
                         courses.add(newCourse);
                         a = true;
-                    }
-
-                    else {
-                        System.out.println(teacherName.toUpperCase());
-                        System.out.println(teachers.get(i).getName().toUpperCase());
                     }
                 }
 
                 if (!a) {
                     System.out.println("Failed");
                 }
-                else {
-                    System.out.println("Successful");
-                }
+
             }
             else if (ans == 4) {
-                System.out.println("4. Edit Student");
+                System.out.println("Edit Student");
+                System.out.print("Students Name To Edit: ");
+                String strStudent = sc.nextLine();
+
+                boolean a = false;
+                for (int i = 0 ; i < students.size(); i++) {
+                    if (strStudent.equals(students.get(i).getName())) {
+                        System.out.print("Edit (name, gradelevel): ");
+                        String strEdit = sc.nextLine();
+                        if (strEdit == "name") {
+                            System.out.print("Enter New Name: ");
+                            String strName = sc.nextLine();
+                            students.get(i).setName(strName);
+                            a = true;
+                        }
+                        else if (strEdit == "gradelevel") {
+                            System.out.print("Enter New Grade Level: ");
+                            int strGradeLevel = sc.nextInt();
+                            students.get(i).setGradeLevel(strGradeLevel);
+                            a = true;
+                        }
+                    }
+                }
+
+                if (!a) {
+                    System.out.println("Failed");
+                }
             }
             else if (ans == 5) {
-                System.out.println("5. List Students");
+                System.out.println("List Students");
+                for (int i = 0 ; i < students.size(); i++) {
+                    System.out.println(students.get(i));
+                }
             }
             else if (ans == 6) {
-                System.out.println("6. List Courses");
+                System.out.println("List Courses");
+                for (int i = 0 ; i < courses.size(); i++) {
+                    System.out.println(courses.get(i));
+                }
             }
             else if (ans == 7) {
                 System.out.println("7. Search for Student");
+                System.out.print("Students Name: ");
+                String strStudent = sc.nextLine();
+
+                boolean a = false;
+                for (int i = 0 ; i < students.size(); i++) {
+                    if (strStudent.equals(students.get(i).getName())) {
+                        System.out.println(students.get(i));
+                        a = true;
+                    }
+                }
+
+                if (!a) {
+                    System.out.println("Failed");
+                }
             }
             else if (ans == 0) {
                 System.out.println("0. Exit");
