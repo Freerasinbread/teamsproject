@@ -192,6 +192,10 @@ public class TEAMS{
             }
             else if (ans == 0) {
                 System.out.println("0. Exit");
+                try {
+                    saveData();
+                }
+                catch(Exception e) {}
             }
             else {
                 System.out.println("Invalid Option");
