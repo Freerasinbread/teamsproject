@@ -151,7 +151,6 @@ public class TEAMS{
                                 students.get(i).addCourse(c);
                                 a = true;
                             }
-
                         }
                     }
                 }
